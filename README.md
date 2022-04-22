@@ -47,13 +47,13 @@ serverless deploy -v
 ### Deploy a function 
 
 ```bash
-serverless deploy function -f mutation
+serverless deploy function -f insurance
 ```
 
 ### Get function logs
 
 ```bash
-serverless mutation -f test -t
+serverless insurance -f test -t
 ```
 
 ### Clean All
@@ -73,13 +73,13 @@ yarn run test
 ### Unit Tests
 
 ```bash
-yarn run unit-test
+yarn run test:unit
 ```
 
 ### Integration Tests
 
 ```bash
-yarn run integration-test
+yarn run test:integration
 ```
 
 ## DB

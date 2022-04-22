@@ -1,5 +1,5 @@
   # Mutation Endpoints
-  mutate:
+  insurance:
     handler: modules/mutation/endpoints/insurance.handler
     memorySize: 128
     timeout: 30

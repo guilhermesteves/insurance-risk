@@ -7,7 +7,7 @@
     "docker": "docker-compose up --force-recreate",
     "dev": "yarn install; serverless offline start --noPrependStageInUrl --stage local --useSeparateProcesses",
     "lint": "eslint --ext js,json,ts modules scripts shared test db --quiet --fix",
-    "test": "jest --testMatch='**/test/**/*.unit.test.js' --watch",
+    "test": "jest --testMatch='**/test/**/*.test.js' --watch",
     "test:ci": "CI=true jest ./test",
     "test:integration": "jest --testMatch='**/test/**/*.int.test.js'",
     "test:unit": "jest --testMatch='**/test/**/*.unit.test.js'",
