@@ -1,0 +1,3 @@
+ENV: local
+REGION: 'localhost'
+MONGO_URI: 'mongodb://localhost:27017/insurance-risk?retryWrites=true'

@@ -1,0 +1,58 @@
+{
+  "name": "subdocument-array-mutation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docker": "docker-compose up --force-recreate",
+    "dev": "yarn install; serverless offline start --noPrependStageInUrl --stage local --useSeparateProcesses",
+    "lint": "eslint --ext js,json,ts modules scripts shared test db --quiet --fix",
+    "test": "jest --testMatch='**/test/**/*.unit.test.js' --watch",
+    "test:ci": "CI=true jest ./test",
+    "test:integration": "jest --testMatch='**/test/**/*.int.test.js'",
+    "test:unit": "jest --testMatch='**/test/**/*.unit.test.js'",
+    "prepare": "husky install",
+    "cli": "node ./scripts/cli.js"
+  },
+  "keywords": [
+    "api",
+    "serverless",
+    "lambda",
+    "AWS"
+  ],
+  "author": "Guilherme Esteves <eu@guilhermesteves.dev>",
+  "license": "MIT",
+  "lint-staged": {
+    "src/**/*.{ts,js,json}": [
+      "yarn run lint"
+    ]
+  },
+  "dependencies": {
+    "commander": "^9.2.0",
+    "joi": "^17.6.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.3",
+    "mongoose": "^6.3.0",
+    "promptly": "^3.2.0",
+    "serverless-pseudo-parameters": "^1.6.0",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.741.0",
+    "chai": "^4.2.0",
+    "cucumber": "^6.0.7",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^26.1.4",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "jest-cucumber": "^3.0.1",
+    "lint-staged": "^12.4.0",
+    "mocha": "^5.2.0",
+    "serverless-offline": "^6.8.0",
+    "serverless-plugin-split-stacks": "^1.9.2",
+    "sinon": "^9.0.2",
+    "uuid": "^8.3.0"
+  }
+}

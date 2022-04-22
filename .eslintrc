@@ -1,0 +1,35 @@
+{
+  "rules": {
+    "no-console": 0,
+    "no-underscore-dangle": 0,
+    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
+    "no-use-before-define": ["error", { "variables": false }],
+    "no-multi-str": 0,
+    "indent": ["error", 2,  { "SwitchCase": 1 }],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"]
+  },
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.js"],
+      "env": { "jest/globals": true },
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"]
+    }
+  ],
+  "globals": {
+    "module": true,
+    "exports": true,
+    "require": false,
+    "Promise": false,
+    "jest": true
+  }
+}

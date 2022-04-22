@@ -1,0 +1,48 @@
+service: subdocument-module-array
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'prod'}
+  region: us-east-1
+  timeout: 10 #Default Lambda timeout
+  memorySize: 128 #Default Lambda Memory Size
+  versionFunctions: false # No functions versioning
+  package:
+    excludeDevDependencies: true
+    exclude:
+      - .git/**
+      - .idea/**
+      - .vscode/**
+      - .test/**
+      - docs/**
+
+  environment: #Global Environment variables
+      ${file(./configs/${self:provider.stage}.yml)}
+
+  iamRoleStatements: # Permissions for all of your functions can be set here
+
+  - Effect: Allow
+    Action: # Gives permission to Lambda execution
+      - lambda:InvokeFunction
+      - lambda:InvokeAsync
+    Resource: "*"
+
+custom:
+  region: ${self:provider.region}
+  stage: ${opt:stage, self:provider.stage}
+  prefix: ${self:custom.stage}-${self:service}
+  config: ${self:custom.prefix}-config
+
+  serverless-offline:
+    host: '0.0.0.0'
+
+  splitStacks:
+    perFunction: true
+    perType: true
+
+plugins:
+  - serverless-pseudo-parameters
+  - serverless-offline
+
+functions: ${file(serverless-dynamic.js)}
