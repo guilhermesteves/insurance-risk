@@ -1,0 +1,10 @@
+  # Mutation Endpoints
+  mutate:
+    handler: modules/mutation/endpoints/insurance.handler
+    memorySize: 128
+    timeout: 30
+    events:
+      - http:
+          path: insurance
+          method: post
+          cors: true
